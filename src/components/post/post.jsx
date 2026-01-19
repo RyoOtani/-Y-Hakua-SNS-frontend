@@ -211,20 +211,25 @@ export default function Post({ post }) {
                     {post.isClassroom && post.materials && post.materials.length > 0 && (
                         <div className="classroomMaterials">
                             {post.materials.map((material, idx) => {
-                                if (material.driveFile) {
-                                    return (
-                                        <a key={idx} href={material.driveFile.alternateLink} target="_blank" rel="noopener noreferrer" className="materialItem">
-                                            <div className="materialIcon">📄</div>
-                                            <div className="materialInfo">
-                                                <div className="materialTitle">{material.driveFile.title}</div>
-                                                <div className="materialType">Google Drive File</div>
-                                            </div>
-                                        </a>
-                                    );
+                                {
+                                    material.driveFile && (() => {
+                                        const isPhoto = /\.(jpg|jpeg|png|gif|webp)$/i.test(material.driveFile.title || "");
+                                        return (
+                                            <a key={idx} href={material.driveFile.alternateLink} target="_blank" rel="noopener noreferrer" className="materialItem cardStyle">
+                                                <div className="materialIcon">{isPhoto ? "🖼️" : "📄"}</div>
+                                                <div className="materialInfo">
+                                                    <div className="materialTitle">
+                                                        {isPhoto ? "(写真が添付されています。詳しくはクラスルームを確認してください)" : material.driveFile.title}
+                                                    </div>
+                                                    <div className="materialType">Google Drive {isPhoto ? "Photo" : "File"}</div>
+                                                </div>
+                                            </a>
+                                        );
+                                    })()
                                 }
                                 if (material.youtubeVideo) {
                                     return (
-                                        <a key={idx} href={material.youtubeVideo.alternateLink} target="_blank" rel="noopener noreferrer" className="materialItem">
+                                        <a key={idx} href={material.youtubeVideo.alternateLink} target="_blank" rel="noopener noreferrer" className="materialItem cardStyle">
                                             <div className="materialIcon">📺</div>
                                             <div className="materialInfo">
                                                 <div className="materialTitle">{material.youtubeVideo.title}</div>
@@ -235,7 +240,7 @@ export default function Post({ post }) {
                                 }
                                 if (material.link) {
                                     return (
-                                        <a key={idx} href={material.link.url} target="_blank" rel="noopener noreferrer" className="materialItem">
+                                        <a key={idx} href={material.link.url} target="_blank" rel="noopener noreferrer" className="materialItem cardStyle">
                                             <div className="materialIcon">🔗</div>
                                             <div className="materialInfo">
                                                 <div className="materialTitle">{material.link.title || material.link.url}</div>
@@ -246,7 +251,7 @@ export default function Post({ post }) {
                                 }
                                 if (material.form) {
                                     return (
-                                        <a key={idx} href={material.form.formUrl} target="_blank" rel="noopener noreferrer" className="materialItem">
+                                        <a key={idx} href={material.form.formUrl} target="_blank" rel="noopener noreferrer" className="materialItem cardStyle">
                                             <div className="materialIcon">📝</div>
                                             <div className="materialInfo">
                                                 <div className="materialTitle">{material.form.title}</div>

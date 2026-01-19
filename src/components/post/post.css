@@ -392,3 +392,88 @@
 .dark-theme .commentFileIcon {
   color: #e4e6eb;
 }
+
+/* Classroom Materials Styles */
+.classroomMaterials {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.materialItem {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.materialItem:hover {
+  background-color: #f0f2f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* SNS Card Style refinement */
+.materialItem.cardStyle {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+.materialIcon {
+  font-size: 28px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+
+.materialInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.materialTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f1419;
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.materialType {
+  font-size: 13px;
+  color: #536471;
+  margin-top: 4px;
+}
+
+/* Dark Theme Support */
+.dark-theme .materialItem {
+  background-color: #192734;
+  border-color: #38444d;
+}
+
+.dark-theme .materialItem.cardStyle {
+  background-color: #1e2732;
+  border-color: #38444d;
+}
+
+.dark-theme .materialItem:hover {
+  background-color: #22303c;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .materialTitle {
+  color: #eff3f4;
+}
+
+.dark-theme .materialType {
+  color: #8b98a5;
+}
