@@ -220,7 +220,7 @@ export default function Post({ post }) {
                                                 <div className="materialTitle">
                                                     {isPhoto ? "(写真が添付されています。詳しくはクラスルームを確認してください)" : material.driveFile.title}
                                                 </div>
-                                                <div className="materialType">Google Drive {isPhoto ? "Photo" : "File"}</div>
+                                                <div className="materialType">Google Drive {isPhoto ? "Photo" : "File"} (グーグルクラスルームでご確認ください) </div>
                                             </div>
                                         </a>
                                     );
@@ -231,7 +231,7 @@ export default function Post({ post }) {
                                             <div className="materialIcon">📺</div>
                                             <div className="materialInfo">
                                                 <div className="materialTitle">{material.youtubeVideo.title}</div>
-                                                <div className="materialType">YouTube Video</div>
+                                                <div className="materialType">YouTube Video (グーグルクラスルームでご確認ください)</div>
                                             </div>
                                         </a>
                                     );
@@ -253,7 +253,7 @@ export default function Post({ post }) {
                                             <div className="materialIcon">📝</div>
                                             <div className="materialInfo">
                                                 <div className="materialTitle">{material.form.title}</div>
-                                                <div className="materialType">Google Form</div>
+                                                <div className="materialType">Google Form (グーグルクラスルームでご確認ください) </div>
                                             </div>
                                         </a>
                                     );
