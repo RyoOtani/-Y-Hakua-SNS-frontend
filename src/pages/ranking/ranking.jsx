@@ -4,7 +4,7 @@ import axios from 'axios';
 import './ranking.css';
 import Topbar from '../../components/topbar/topbarMain';
 import Sidebar from '../../components/sidebar/sidebar';
-import { TrendingUp, Tag } from '@mui/icons-material';
+import { TrendingUp } from '@mui/icons-material';
 import Bottombar from '../../components/bottombar/bottombar';
 
 export default function Ranking() {
