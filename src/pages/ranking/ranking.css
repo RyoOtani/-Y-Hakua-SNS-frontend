@@ -6,8 +6,18 @@
 .rankingMain {
     flex: 9;
     padding: 20px 40px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.rankingBoards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.rankingBoard {
+    flex: 1;
 }
 
 .rankingHeader {
@@ -174,6 +184,11 @@
         padding: 15px;
     }
 
+    .rankingBoards {
+        flex-direction: column;
+        gap: 24px;
+    }
+
     .rankingHeader h2 {
         font-size: 20px;
     }
@@ -189,5 +204,12 @@
 
     .rankTag {
         font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .rankingBoards {
+        flex-direction: row;
+        align-items: flex-start;
     }
 }
