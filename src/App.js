@@ -33,6 +33,7 @@ import Messenger from './pages/messenger/Messenger'; // Import Messenger compone
 import Notification from './pages/notification/notification';
 import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
 import Ranking from './pages/ranking/ranking';
+import Learning from './pages/learning/learning';
 import { useEffect } from 'react';
 
 
@@ -192,6 +193,20 @@ function App() {
                 <Navigate to="/privacy-policy" />
               ) : (
                 <Ranking />
+              )
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/learning"
+          element={
+            user ? (
+              needsPrivacyAgreement ? (
+                <Navigate to="/privacy-policy" />
+              ) : (
+                <Learning />
               )
             ) : (
               <Navigate to="/login" />

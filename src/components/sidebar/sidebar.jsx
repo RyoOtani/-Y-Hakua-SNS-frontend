@@ -1,4 +1,4 @@
-import { Home, Notifications, MessageRounded, Person, Settings, MoreVert, TrendingUp } from '@mui/icons-material'
+import { Home, Notifications, MessageRounded, Person, Settings, MoreVert, TrendingUp, School } from '@mui/icons-material'
 import React, { useContext, useState, useRef, useEffect } from 'react'
 import './sidebar.css'
 import { Link } from 'react-router-dom'
@@ -87,6 +87,14 @@ export default function Sidebar() {
                             <TrendingUp className='sidebarIcon' />
                             <span className='sidebarListItemText'>
                                 Ranking
+                            </span>
+                        </Link>
+                    </li>
+                    <li className="sidebarListItem">
+                        <Link to="/learning" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%" }}>
+                            <School className='sidebarIcon' />
+                            <span className='sidebarListItemText'>
+                                学習記録
                             </span>
                         </Link>
                     </li>
