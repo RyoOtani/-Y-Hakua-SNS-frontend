@@ -23,6 +23,11 @@ export default function Bottombar() {
                     </Link>
                 </li>
                 <li className="BottombarListItem">
+                    <Link to="/learning" style={{ textDecoration: "none", color: "inherit" }}>
+                        <School className='BottombarIcon' />
+                    </Link>
+                </li>
+                <li className="BottombarListItem">
                     <Link to="/notifications" style={{ textDecoration: "none", color: "inherit" }}>
                         <Notifications className='BottombarIcon' />
                     </Link>
@@ -39,11 +44,7 @@ export default function Bottombar() {
                         </Link>
                     </li>
                 )}
-                <li className="BottombarListItem">
-                    <Link to="/learning" style={{ textDecoration: "none", color: "inherit" }}>
-                        <School className='BottombarIcon' />
-                    </Link>
-                </li>
+
                 <li className="BottombarListItem">
 
                     <Link to="/setting" style={{ textDecoration: "none", color: "inherit" }}>

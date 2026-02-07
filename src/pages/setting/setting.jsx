@@ -286,6 +286,24 @@ export default function Setting() {
               )}
             </div>
 
+
+            <div className="settingsNavigationButtons" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <button
+                className="settingsLogoutButton"
+                style={{ backgroundColor: '#1877f2', color: 'white', marginBottom: '0' }}
+                onClick={() => window.location.href = "/learning"}
+              >
+                学習記録ページへ
+              </button>
+              <button
+                className="settingsLogoutButton"
+                style={{ backgroundColor: '#1877f2', color: 'white', marginBottom: '0' }}
+                onClick={() => window.location.href = "/ranking"}
+              >
+                ランキングページへ
+              </button>
+            </div>
+
             <button className="settingsLogoutButton" onClick={async () => {
               try {
                 await axios.get("/api/auth/logout");

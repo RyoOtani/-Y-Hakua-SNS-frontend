@@ -58,6 +58,14 @@ export default function Sidebar() {
                             </span>
                         </Link>
                     </li>
+                    <li className="sidebarListItem">
+                        <Link to="/learning" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%" }}>
+                            <School className='sidebarIcon' />
+                            <span className='sidebarListItemText'>
+                                学習記録
+                            </span>
+                        </Link>
+                    </li>
                     {/* <li className="sidebarListItem">
                     <Search className='sidebarIcon'/>
                     <span className='sidebarListItemText'>
@@ -90,14 +98,7 @@ export default function Sidebar() {
                             </span>
                         </Link>
                     </li>
-                    <li className="sidebarListItem">
-                        <Link to="/learning" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%" }}>
-                            <School className='sidebarIcon' />
-                            <span className='sidebarListItemText'>
-                                学習記録
-                            </span>
-                        </Link>
-                    </li>
+
                     {user && (
                         <li className="sidebarListItem">
                             <Link to={`/profile/${user.username}`} style={{ textDecoration: "none", color: "inherit" }}>
