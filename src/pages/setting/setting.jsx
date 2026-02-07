@@ -287,25 +287,36 @@ export default function Setting() {
             </div>
 
 
-            <div className="settingsNavigationButtons" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {/* Navigation Buttons */}
+            <div className="settingsNavigationButtons" style={{ marginTop: '30px', display: 'flex', gap: '15px' }}>
               <button
                 className="settingsLogoutButton"
-                style={{ backgroundColor: '#1877f2', color: 'white', marginBottom: '0' }}
+                style={{ flex: 1, backgroundColor: '#1877f2', color: 'white', marginBottom: '0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 onClick={() => window.location.href = "/learning"}
               >
-                学習記録ページへ
+                学習記録
               </button>
               <button
                 className="settingsLogoutButton"
-                style={{ backgroundColor: '#1877f2', color: 'white', marginBottom: '0' }}
+                style={{ flex: 1, backgroundColor: '#1877f2', color: 'white', marginBottom: '0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 onClick={() => window.location.href = "/ranking"}
               >
-                ランキングページへ
+                ランキング
               </button>
             </div>
-            <div className="settingsNavigationButtons" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVUZFd_moCAJ8R2BSrnMPw-jGrbM5EckvwCyKr1n2_pH8SKg/viewform?usp=header" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%" }}>
-                <button className="settingsLogoutButton" style={{ backgroundColor: '#1877f2', color: 'white', marginBottom: '0' }}>
+
+            {/* Contact Button */}
+            <div className="settingsNavigationButtons" style={{ marginTop: '15px' }}>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdVUZFd_moCAJ8R2BSrnMPw-jGrbM5EckvwCyKr1n2_pH8SKg/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", width: "100%", display: "block" }}
+              >
+                <button
+                  className="settingsLogoutButton"
+                  style={{ width: '100%', backgroundColor: '#42b72a', color: 'white', marginBottom: '0' }}
+                >
                   お問い合わせ
                 </button>
               </a>
