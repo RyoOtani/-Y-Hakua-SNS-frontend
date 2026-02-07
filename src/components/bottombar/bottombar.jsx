@@ -1,4 +1,4 @@
-import { Home, Notifications, MessageRounded, Person, Settings } from '@mui/icons-material'
+import { Home, Notifications, MessageRounded, Person, Settings, School } from '@mui/icons-material'
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../state/AuthContext';
@@ -39,6 +39,11 @@ export default function Bottombar() {
                         </Link>
                     </li>
                 )}
+                <li className="BottombarListItem">
+                    <Link to="/learning" style={{ textDecoration: "none", color: "inherit" }}>
+                        <School className='BottombarIcon' />
+                    </Link>
+                </li>
                 <li className="BottombarListItem">
 
                     <Link to="/setting" style={{ textDecoration: "none", color: "inherit" }}>
