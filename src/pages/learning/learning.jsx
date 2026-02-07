@@ -19,7 +19,6 @@ export default function Learning() {
     const { user } = useContext(AuthContext);
     const [isStudying, setIsStudying] = useState(false);
     const [elapsedTime, setElapsedTime] = useState(0); // 秒
-    const [activeSession, setActiveSession] = useState(null);
     const [stats, setStats] = useState({
         today: 0,
         week: 0,
@@ -63,7 +62,6 @@ export default function Learning() {
 
             // アクティブセッションがあれば復元
             if (activeRes.data) {
-                setActiveSession(activeRes.data);
                 setIsStudying(true);
                 const elapsed = Math.floor(
                     (Date.now() - new Date(activeRes.data.startTime).getTime()) / 1000
@@ -118,14 +116,12 @@ export default function Learning() {
             const res = await axios.post('/api/learning/sessions/start', {
                 userId: user._id,
             });
-            setActiveSession(res.data);
             setIsStudying(true);
             setElapsedTime(0);
         } catch (err) {
             console.error('Error starting session:', err);
             if (err.response?.data?.session) {
                 // 既にアクティブなセッションがある
-                setActiveSession(err.response.data.session);
                 setIsStudying(true);
                 const elapsed = Math.floor(
                     (Date.now() -
@@ -144,7 +140,6 @@ export default function Learning() {
                 userId: user._id,
             });
             setIsStudying(false);
-            setActiveSession(null);
             setElapsedTime(0);
             // データを再取得
             fetchData();
