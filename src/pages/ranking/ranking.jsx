@@ -69,6 +69,7 @@ export default function Ranking() {
                                 <TrendingUp className="rankingIcon" />
                                 <h2>トレンドランキング</h2>
                             </div>
+                            {/* ... Content ... */}
                             <p className="rankingSubtitle">本日のトレンドハッシュタグ</p>
 
                             {loading ? (
@@ -98,85 +99,87 @@ export default function Ranking() {
                             )}
                         </div>
 
-                        <div className="rankingBoard">
-                            <div className="rankingHeader">
-                                <TrendingUp className="rankingIcon" />
-                                <h2>いいねランキング</h2>
-                            </div>
-                            <p className="rankingSubtitle">本日のいいね数ランキング</p>
+                        <div className="rankingRightColumn" style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                            <div className="rankingBoard">
+                                <div className="rankingHeader">
+                                    <TrendingUp className="rankingIcon" />
+                                    <h2>いいねランキング</h2>
+                                </div>
+                                <p className="rankingSubtitle">本日のいいね数ランキング</p>
 
-                            {loading ? (
-                                <div className="rankingLoading">読み込み中...</div>
-                            ) : (
-                                <ul className="rankingList">
-                                    {displayLikeRanking.map((item) => (
-                                        <li
-                                            key={item.rank}
-                                            className={`rankingItem ${item.postId ? '' : 'rankingItem--empty'}`}
-                                        >
-                                            <span className="rankNumber">{item.rank}</span>
-                                            <div className="rankContent">
-                                                {item.postId && item.user ? (
-                                                    <>
-                                                        <span className="rankTag">
-                                                            {item.user.username} さんの投稿
-                                                        </span>
-                                                        <span className="rankCount">{item.count} いいね</span>
-                                                    </>
-                                                ) : (
-                                                    <span className="rankTag rankTag--empty">（空き）</span>
-                                                )}
-                                            </div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-
-                        <div className="rankingBoard">
-                            <div className="rankingHeader">
-                                <School className="rankingIcon" />
-                                <h2>学習ランキング</h2>
-                            </div>
-                            <p className="rankingSubtitle">今週の学習時間ランキング</p>
-
-                            {loading ? (
-                                <div className="rankingLoading">読み込み中...</div>
-                            ) : (
-                                <ul className="rankingList">
-                                    {displayLearningRanking.map((item) => (
-                                        <li
-                                            key={item.rank}
-                                            className={`rankingItem ${item.userId ? '' : 'rankingItem--empty'}`}
-                                            onClick={() => item.username && navigate(`/profile/${item.username}`)}
-                                        >
-                                            <span className="rankNumber">{item.rank}</span>
-                                            <div className="rankContent">
-                                                {item.userId ? (
-                                                    <>
-                                                        <div className="rankUser">
-                                                            <img
-                                                                src={item.profilePicture || "/assets/person/noAvatar.png"}
-                                                                alt=""
-                                                                className="rankUserImg"
-                                                                style={{ width: '24px', height: '24px', borderRadius: '50%', marginRight: '8px', objectFit: 'cover' }}
-                                                            />
+                                {loading ? (
+                                    <div className="rankingLoading">読み込み中...</div>
+                                ) : (
+                                    <ul className="rankingList">
+                                        {displayLikeRanking.map((item) => (
+                                            <li
+                                                key={item.rank}
+                                                className={`rankingItem ${item.postId ? '' : 'rankingItem--empty'}`}
+                                            >
+                                                <span className="rankNumber">{item.rank}</span>
+                                                <div className="rankContent">
+                                                    {item.postId && item.user ? (
+                                                        <>
                                                             <span className="rankTag">
-                                                                {item.username}
+                                                                {item.user.username} さんの投稿
                                                             </span>
-                                                        </div>
-                                                        <span className="rankCount">
-                                                            {Math.floor(item.totalMinutes / 60)}時間 {item.totalMinutes % 60}分
-                                                        </span>
-                                                    </>
-                                                ) : (
-                                                    <span className="rankTag rankTag--empty">（空き）</span>
-                                                )}
-                                            </div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
+                                                            <span className="rankCount">{item.count} いいね</span>
+                                                        </>
+                                                    ) : (
+                                                        <span className="rankTag rankTag--empty">（空き）</span>
+                                                    )}
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+
+                            <div className="rankingBoard">
+                                <div className="rankingHeader">
+                                    <School className="rankingIcon" />
+                                    <h2>学習ランキング</h2>
+                                </div>
+                                <p className="rankingSubtitle">今週の学習時間ランキング</p>
+
+                                {loading ? (
+                                    <div className="rankingLoading">読み込み中...</div>
+                                ) : (
+                                    <ul className="rankingList">
+                                        {displayLearningRanking.map((item) => (
+                                            <li
+                                                key={item.rank}
+                                                className={`rankingItem ${item.userId ? '' : 'rankingItem--empty'}`}
+                                                onClick={() => item.username && navigate(`/profile/${item.username}`)}
+                                            >
+                                                <span className="rankNumber">{item.rank}</span>
+                                                <div className="rankContent">
+                                                    {item.userId ? (
+                                                        <>
+                                                            <div className="rankUser">
+                                                                <img
+                                                                    src={item.profilePicture || "/assets/person/noAvatar.png"}
+                                                                    alt=""
+                                                                    className="rankUserImg"
+                                                                    style={{ width: '24px', height: '24px', borderRadius: '50%', marginRight: '8px', objectFit: 'cover' }}
+                                                                />
+                                                                <span className="rankTag">
+                                                                    {item.username}
+                                                                </span>
+                                                            </div>
+                                                            <span className="rankCount">
+                                                                {Math.floor(item.totalMinutes / 60)}時間 {item.totalMinutes % 60}分
+                                                            </span>
+                                                        </>
+                                                    ) : (
+                                                        <span className="rankTag rankTag--empty">（空き）</span>
+                                                    )}
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

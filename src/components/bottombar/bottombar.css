@@ -39,7 +39,7 @@
     margin-left: 10px;
 }
 
-@media screen and (min-width:471px){
+@media screen and (min-width: 768px) {
     .bottombarContainer {
         display: none;
     }
@@ -47,14 +47,14 @@
 
 /* Dark Theme Styles */
 .dark-theme .bottombarContainer {
-  background-color: #192734;
-  border-top: 1px solid #38444d;
+    background-color: #192734;
+    border-top: 1px solid #38444d;
 }
 
 .dark-theme .BottombarListItem {
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .dark-theme .BottombarIcon {
-  color: #f5f5f5;
+    color: #f5f5f5;
 }
