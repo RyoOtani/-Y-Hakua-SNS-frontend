@@ -306,7 +306,7 @@ export default function Setting() {
             </div>
 
             {/* Contact Button */}
-            <div className="settingsNavigationButtons" style={{ marginTop: '15px' }}>
+            <div className="settingsNavigationButtons" style={{ marginTop: '15px', marginBottom: '30px' }}>
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdVUZFd_moCAJ8R2BSrnMPw-jGrbM5EckvwCyKr1n2_pH8SKg/viewform?usp=header"
                 target="_blank"
