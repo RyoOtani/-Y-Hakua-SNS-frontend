@@ -62,7 +62,7 @@ export default function Sidebar() {
                         <Link to="/learning" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%" }}>
                             <School className='sidebarIcon' />
                             <span className='sidebarListItemText'>
-                                学習記録
+                                Study
                             </span>
                         </Link>
                     </li>

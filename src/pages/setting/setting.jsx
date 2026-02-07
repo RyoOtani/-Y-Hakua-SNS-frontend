@@ -303,6 +303,13 @@ export default function Setting() {
                 ランキングページへ
               </button>
             </div>
+            <div className="settingsNavigationButtons" style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVUZFd_moCAJ8R2BSrnMPw-jGrbM5EckvwCyKr1n2_pH8SKg/viewform?usp=header" style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", width: "100%" }}>
+                <button className="settingsLogoutButton" style={{ backgroundColor: '#1877f2', color: 'white', marginBottom: '0' }}>
+                  お問い合わせ
+                </button>
+              </a>
+            </div>
 
             <button className="settingsLogoutButton" onClick={async () => {
               try {
