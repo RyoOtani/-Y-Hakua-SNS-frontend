@@ -113,7 +113,7 @@ export default function Learning() {
     // 学習開始
     const handleStart = async () => {
         try {
-            const res = await axios.post('/api/learning/sessions/start', {
+            await axios.post('/api/learning/sessions/start', {
                 userId: user._id,
             });
             setIsStudying(true);
