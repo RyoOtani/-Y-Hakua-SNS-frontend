@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './rightbar.css';
 import axios from 'axios';
 
 export default function Rightbar({ user }) {

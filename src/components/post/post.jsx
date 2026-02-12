@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import axios from 'axios'
-import './post.css'
 //import { ChatBubbleOutline, FavoriteOutlined, LinkRounded, MoreVert } from '@mui/icons-material'
 import { ChatBubbleOutline, FavoriteOutlined, MoreVert, AttachFile, Cancel } from '@mui/icons-material'
 import { format } from 'timeago.js';

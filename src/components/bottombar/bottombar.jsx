@@ -2,7 +2,6 @@ import { Home, Notifications, MessageRounded, Person, Settings, School } from '@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../state/AuthContext';
-import './bottombar.css'
 
 export default function Bottombar() {
     const { user } = useContext(AuthContext);

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import './comment.css';
 import { format } from 'timeago.js';
 import { AuthContext } from '../../state/AuthContext';
 import { Delete } from '@mui/icons-material';

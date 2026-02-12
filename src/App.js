@@ -22,7 +22,10 @@
 //   );
 // }
 
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense, useContext } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import axios from 'axios';
+import { AuthContext } from './state/AuthContext';
 
 const Home = lazy(() => import('./pages/home/Home'));
 const Login = lazy(() => import('./pages/login/login'));
@@ -36,12 +39,6 @@ const Notification = lazy(() => import('./pages/notification/notification'));
 const PrivacyPolicy = lazy(() => import('./pages/privacyPolicy/PrivacyPolicy'));
 const Ranking = lazy(() => import('./pages/ranking/ranking'));
 const Learning = lazy(() => import('./pages/learning/learning'));
-
-
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from './state/AuthContext';
-import axios from 'axios';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL || "";
 axios.defaults.withCredentials = true;
