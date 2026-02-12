@@ -22,19 +22,20 @@
 //   );
 // }
 
-import Home from './pages/home/Home';
-import Login from './pages/login/login';
-import Register from './pages/register/register';
-import Profile from './pages/profile/profile';
-import SearchResults from './pages/search_result/search_result';
-import AuthCallback from './pages/AuthCallback';
-import Setting from './pages/setting/setting';
-import Messenger from './pages/messenger/Messenger'; // Import Messenger component
-import Notification from './pages/notification/notification';
-import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
-import Ranking from './pages/ranking/ranking';
-import Learning from './pages/learning/learning';
-import { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
+
+const Home = lazy(() => import('./pages/home/Home'));
+const Login = lazy(() => import('./pages/login/login'));
+const Register = lazy(() => import('./pages/register/register'));
+const Profile = lazy(() => import('./pages/profile/profile'));
+const SearchResults = lazy(() => import('./pages/search_result/search_result'));
+const AuthCallback = lazy(() => import('./pages/AuthCallback'));
+const Setting = lazy(() => import('./pages/setting/setting'));
+const Messenger = lazy(() => import('./pages/messenger/Messenger'));
+const Notification = lazy(() => import('./pages/notification/notification'));
+const PrivacyPolicy = lazy(() => import('./pages/privacyPolicy/PrivacyPolicy'));
+const Ranking = lazy(() => import('./pages/ranking/ranking'));
+const Learning = lazy(() => import('./pages/learning/learning'));
 
 
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
@@ -95,22 +96,23 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        {/* 保護されたルート */}
-        <Route
-          path="/"
-          element={
-            user ? (
-              needsPrivacyAgreement ? (
-                <Navigate to="/privacy-policy" />
+      <Suspense fallback={<div style={{ padding: 24 }}>Loading...</div>}>
+        <Routes>
+          {/* 保護されたルート */}
+          <Route
+            path="/"
+            element={
+              user ? (
+                needsPrivacyAgreement ? (
+                  <Navigate to="/privacy-policy" />
+                ) : (
+                  <Home />
+                )
               ) : (
-                <Home />
+                <Navigate to="/login" />
               )
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
+            }
+          />
         <Route
           path="/profile/:username"
           element={
@@ -224,7 +226,8 @@ function App() {
           element={user ? <Navigate to="/" /> : <Register />}
         />
         <Route path="/auth/success" element={<AuthCallback />} />
-      </Routes>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

@@ -19,8 +19,12 @@ export default function Home() {
            <Sidebar />
         </div>
         <div className="HomeConteinnerRightside">
-          <Timeline />
-          <Rightbar />
+          <div className="timelineColumn">
+            <Timeline />
+          </div>
+          <div className="rightbarColumn">
+            <Rightbar />
+          </div>
         </div>
       </div>
       <div className="bottombar">
