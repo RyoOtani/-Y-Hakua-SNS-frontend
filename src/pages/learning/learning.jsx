@@ -415,7 +415,7 @@ export default function Learning() {
                             <p className="noHistory">まだ学習記録がありません</p>
                         ) : (
                             <ul className="historyList">
-                                {recentSessions.map((session) => (
+                                {recentSessions.slice(0, 10).map((session) => (
                                     <li key={session._id} className="historyItem">
                                         <span className="historyDate">
                                             {new Date(session.startTime).toLocaleDateString('ja-JP', {
