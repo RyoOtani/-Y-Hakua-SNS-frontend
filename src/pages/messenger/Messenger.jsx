@@ -141,7 +141,19 @@ export default function Messenger() {
   const updateConversationList = useCallback((message) => {
     setConversations(prev => {
       const targetIndex = prev.findIndex(c => c._id === message.conversationId);
-      if (targetIndex === -1) return prev;
+      if (targetIndex === -1) {
+        // 未知の会話 → サーバーから再取得
+        const fetchConvs = async () => {
+          try {
+            const res = await axios.get('/api/conversations');
+            setConversations(res.data);
+          } catch (e) {
+            console.error('Failed to refresh conversations:', e);
+          }
+        };
+        fetchConvs();
+        return prev;
+      }
 
       const updatedConv = { ...prev[targetIndex] };
       updatedConv.lastMessageText = message.text;
@@ -197,7 +209,7 @@ export default function Messenger() {
 
     const getConversations = async () => {
       try {
-        const res = await axios.get("/api/conversations/" + user._id);
+        const res = await axios.get("/api/conversations");
         setConversations(res.data);
       } catch (err) {
         console.log(err);
