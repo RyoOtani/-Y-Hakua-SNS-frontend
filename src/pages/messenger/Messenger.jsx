@@ -327,8 +327,8 @@ export default function Messenger() {
 
         // 現在開いているチャットのメッセージを更新
         if (currentChat) {
-          const msgRes = await axios.get("/api/messages/" + currentChat._id);
-          setMessages(msgRes.data);
+          const msgRes = await axios.get("/api/messages/" + currentChat._id + "?page=1&limit=20");
+          setMessages(msgRes.data.reverse()); // 古い順に並べ替え
         }
       } catch (err) {
         console.log("Auto-refresh error:", err);
