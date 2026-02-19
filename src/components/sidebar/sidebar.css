@@ -239,3 +239,10 @@
 .dark-theme .logoutBtn:hover {
   background: #253341;
 }
+
+/* モバイル表示時はsidebarを非表示にしてbottombarのみでナビゲーション */
+@media screen and (max-width: 767px) {
+  .sidebar {
+    display: none !important;
+  }
+}

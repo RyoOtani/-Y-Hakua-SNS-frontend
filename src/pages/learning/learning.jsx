@@ -48,11 +48,11 @@ export default function Learning() {
         try {
             const [statsRes, streakRes, goalsRes, sessionsRes, activeRes] =
                 await Promise.all([
-                    axios.get(`/api/learning/stats/${user._id}`),
-                    axios.get(`/api/learning/streak/${user._id}`),
-                    axios.get(`/api/learning/goals/${user._id}`),
-                    axios.get(`/api/learning/sessions/${user._id}?limit=10`),
-                    axios.get(`/api/learning/sessions/active/${user._id}`),
+                    axios.get('/api/learning/stats'),
+                    axios.get('/api/learning/streak'),
+                    axios.get('/api/learning/goals'),
+                    axios.get('/api/learning/sessions?limit=10'),
+                    axios.get('/api/learning/sessions/active'),
                 ]);
 
             setStats(statsRes.data);
