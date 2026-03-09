@@ -305,13 +305,26 @@ export default function Setting() {
               </button>
             </div>
 
-            {/* Contact Button */}
-            <div className="settingsNavigationButtons" style={{ marginTop: '15px', marginBottom: '30px' }}>
+            {/* Privacy Policy & Contact Buttons */}
+            <div className="settingsNavigationButtons" style={{ marginTop: '15px', display: 'flex', gap: '15px' }}>
+              <a
+                href={(process.env.REACT_APP_API_URL || '') + '/privacy-policy'}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", flex: 1, display: "block" }}
+              >
+                <button
+                  className="settingsLogoutButton"
+                  style={{ width: '100%', backgroundColor: '#6c757d', color: 'white', marginBottom: '0' }}
+                >
+                  プライバシーポリシー
+                </button>
+              </a>
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdVUZFd_moCAJ8R2BSrnMPw-jGrbM5EckvwCyKr1n2_pH8SKg/viewform?usp=header"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ textDecoration: "none", width: "100%", display: "block" }}
+                style={{ textDecoration: "none", flex: 1, display: "block" }}
               >
                 <button
                   className="settingsLogoutButton"
