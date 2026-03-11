@@ -350,9 +350,7 @@ export default function Setting() {
             }}>
               ログアウト
             </button>
-            <a href="api.yapp.me/privacy-policy" target="_blank" rel="noopener noreferrer" className="settingsLink">
-              https://api.yapp.me/privacy-policy
-            </a>
+
           </div>
         </div>
       </div>

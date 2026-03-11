@@ -151,6 +151,19 @@ export default function Login() {
             </Button>
 
           </form>
+          <a
+            href={(process.env.REACT_APP_API_URL || '') + '/privacy-policy'}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#8899a6',
+              fontSize: '12px',
+              marginTop: '15px',
+              textDecoration: 'none',
+            }}
+          >
+            プライバシーポリシー
+          </a>
         </div>
       </div>
     </div>
