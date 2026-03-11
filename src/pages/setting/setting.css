@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.settingsLink {
+  font-size: 14px;
+}
+
 .settingsWrapper {
   flex: 9;
   padding: 20px;
