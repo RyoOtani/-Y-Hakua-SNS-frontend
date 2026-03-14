@@ -32,7 +32,7 @@ export default function Topbar({ onSearch, initialValue = '' }) {
                 <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
                     <img src={PUBLIC_FOLDER + "logo.png"} alt="Logo" className="logoImg" />
                 </Link>
-                <span className="logoText">SSH研究用/Classroom連携型SNS Y</span>
+                <span className="logoText">SSH研究用/Classroom連携型SNS_Y</span>
             </div>
             <div className="topbarCenter">
                 {/* エンターで送信 */}
