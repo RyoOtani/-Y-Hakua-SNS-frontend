@@ -101,7 +101,8 @@
 import React from 'react'
 import "./login.css";
 import GoogleIcon from '@mui/icons-material/Google';
-import { Button } from '@mui/material';
+import AppleIcon from '@mui/icons-material/Apple';
+import { Button, Stack } from '@mui/material';
 
 
 export default function Login() {
@@ -109,12 +110,17 @@ export default function Login() {
 
   const handleGoogleLogin = () => {
     // Note: Google blocks OAuth requests from some WebViews for security reasons.
-    // If you are wrapping this app in a native app, use Custom Tabs (Android) 
+    // If you are wrapping this app in a native app, use Custom Tabs (Android)
     // or SFSafariViewController (iOS) instead of a WebView.
     // https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html
 
     // バックエンドのGoogle OAuth認証URLにリダイレクト
     window.location.href = `${process.env.REACT_APP_API_URL || "http://localhost:8800"}/api/auth/google`;
+  };
+
+  const handleAppleLogin = () => {
+    // バックエンドのApple OAuth認証URLにリダイレクト
+    window.location.href = `${process.env.REACT_APP_API_URL || "http://localhost:8800"}/api/auth/apple`;
   };
 
   return (
@@ -129,26 +135,48 @@ export default function Login() {
         <div className="loginRight">
           <form className="loginBox" >
             <h2 className="loginMsg">ログインはこちらから</h2>
-            <Button
-              variant="contained"
-              fullWidth
-              onClick={handleGoogleLogin}
-              startIcon={<GoogleIcon />}
-              sx={{
-                backgroundColor: '#ffffff',
-                color: '#000000',
-                '&:hover': {
-                  backgroundColor: '#f1f1f1',
-                },
-                textTransform: 'none',
-                fontSize: '1rem',
-                fontWeight: 600,
-                padding: '12px',
-                borderRadius: '30px',
-              }}
-            >
-              Googleでログイン
-            </Button>
+            <Stack spacing={2} sx={{ width: '100%' }}>
+              <Button
+                variant="contained"
+                fullWidth
+                onClick={handleGoogleLogin}
+                startIcon={<GoogleIcon />}
+                sx={{
+                  backgroundColor: '#ffffff',
+                  color: '#000000',
+                  '&:hover': {
+                    backgroundColor: '#f1f1f1',
+                  },
+                  textTransform: 'none',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  padding: '12px',
+                  borderRadius: '30px',
+                }}
+              >
+                Googleでログイン
+              </Button>
+              <Button
+                variant="contained"
+                fullWidth
+                onClick={handleAppleLogin}
+                startIcon={<AppleIcon />}
+                sx={{
+                  backgroundColor: '#000000',
+                  color: '#ffffff',
+                  '&:hover': {
+                    backgroundColor: '#1a1a1a',
+                  },
+                  textTransform: 'none',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  padding: '12px',
+                  borderRadius: '30px',
+                }}
+              >
+                Appleでログイン
+              </Button>
+            </Stack>
 
           </form>
           <a

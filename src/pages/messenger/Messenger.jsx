@@ -41,6 +41,8 @@ export default function Messenger() {
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
+  const getSenderId = (sender) => sender?._id || sender;
+
   // フレンド検索ロジック
   const handleSearchChange = async (e) => {
     const val = e.target.value;
@@ -113,7 +115,7 @@ export default function Messenger() {
         setMessages((prev) =>
           prev.map((m) =>
             // 相手が読んだので自分のメッセージに既読をつける
-            m.sender === user._id ? { ...m, read: true } : m
+            getSenderId(m.sender) === user._id ? { ...m, read: true } : m
           )
         );
       }
@@ -175,21 +177,13 @@ export default function Messenger() {
   useEffect(() => {
     if (arrivalMessage) {
       // 現在開いているチャットからのメッセージなら追加
-      if (currentChat?.members.includes(arrivalMessage.sender)) {
+      if (currentChat?.members.includes(getSenderId(arrivalMessage.sender))) {
         setMessages((prev) => [...prev, arrivalMessage]);
 
-        // 即座に既読にする
+        // 開いているチャットで受信したら既読にする
         const markRead = async () => {
           try {
-            await axios.put(`/api/messages/${arrivalMessage.conversationId}/read`, {
-              userId: user._id
-            });
-            // 相手に既読通知
-            socket.emit("markAsRead", {
-              conversationId: arrivalMessage.conversationId,
-              readerId: user._id,
-              senderId: arrivalMessage.sender,
-            });
+            await axios.put(`/api/messages/read-all/${arrivalMessage.conversationId}`);
             // 未読カウントを更新
             refreshUnreadMessages();
           } catch (err) {
